@@ -54,7 +54,7 @@ for x in range (2):
     nazwisko = input("podaj nazwisko")
     karty = int(input("podaj karte"))
     wyporzyczone = int(input("podaj wyporzyczenia"))
-    print("--------------------------------------")
+    print("-"*30)
     biblioteka = Czytelnik(imie,nazwisko,karty,wyporzyczone)
 # 
 # biblioteka = Czytelnik("Jogn","McCoy",1,0)
@@ -72,16 +72,16 @@ while True:
     elif decyzja == 2:
         print("-------------wszyscy-------------------")
         biblioteka.wszystko()
-        print("--------------------------------------")
+        print("-"*30)
     elif decyzja == 3:
         print("-------------darmozjady-------------------")
         biblioteka.niewyporzyczone()
-        print("--------------------------------------")
+        print("-"*30)
     elif decyzja == 4:
         print("---------------Dodawanie karty------------------")
         numkarty = int(input("podaj nr karty"))
         ilosc = int(input("podaj ilosc ile chcesz wyporzyczyc"))
         biblioteka.dodawajie(numkarty, ilosc)
-        print("-----------------------------------------")
+        print("-"*30)
     else:
         "podano złą liczbe!"
