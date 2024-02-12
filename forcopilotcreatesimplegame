@@ -1,0 +1,32 @@
+import random
+while True:
+    choices = ["rock", "paper", "scissors"]
+    player = None
+    computer = random.choice(choices)
+    while player not in choices:
+        player = input("rock paper or scissors?: ").lower()
+
+    if player == computer:
+        print('tie!')
+    elif player == "rock":
+        if computer == "paper":
+            print('lose!')
+        if computer == "scissors":
+            print("win!")
+    elif player == "paper":
+        if computer == "scissors":
+            print('lose!')
+        if computer == "rock":
+            print("win!")
+    elif player == "scissors":
+        if computer == "rock":
+            print('lose!')
+        if computer == "paper":
+            print("win!")
+    print(player, computer)
+    # try:
+    play = input("Wanna play agan? ( yes / no )").lower()
+    if play != "yes":
+        break
+    # except
+print("bye!")
