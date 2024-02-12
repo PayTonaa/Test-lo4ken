@@ -1,47 +1,29 @@
-"""
+
 #zadanie:
-#Design a TaskList class that will store #a list of tasks to be performed.
+#Design a TaskList class that will store a list of tasks to be performed. 
 
-#Flap:
-
-#title - string,
-
-#description - string,
-
-#date - string,
-
-#completed - true, false (default false)
+#Fields:
+#title - string, 
+#description - string, 
+#date - string, 
+#completed - true, false (default is false)
 
 #Methods of this class:
+#addTask - is supposed to allow adding a new task by passing values as parameters, 
+#showTask(true/false) - is to allow displaying completed or uncompleted tasks based on the parameter showTask(true) or showTask(false)
+#taskComplete - mark the task as completed
 
-#addTask - should enable adding a new #task by passing values as
+#Create an object named task and add several tasks to the array
+ 
+#example array:
+#tasks_data = [
+#    ["Zakupy spożywcze", "Kupić chleb i mleko", "2024-02-15", False],
+#    ["Przygotowanie prezentacji", "Przygotować prezentację na spotkanie", "2024-02-20", False],
+#    ["Sprzątanie mieszkania", "Wysprzątać pokój i umyć podłogę", "2024-02-18", True],
+#    ["Zakupy online", "Zamówić nowe buty i koszulkę", "2024-02-17", False],
+#    ["Nauka do egzaminu", "Powtórzyć materiał z matematyki", "2024-02-16", False]
+#]
 
-#parameters,
-
-#showTask(true/false) - should allow you #to display completed or unfinished tasks #on the
-
-#based on the showTask(true) or #showTask(false) parameter
-
-#taskComplete - marking the task as #completed
-
-#Create an object called task and add #several tasks to the array
-
-#sample board
-
-tasks_data = [
-
-#["Zakupy spożywcze", "Kupić chleb i #mleko", "2024-02-15", False],
-
-["Przygotowanie prezentacji", "Przygotować prezentację na spotkanie", "2024-02-20", False],
-
-["Sprzątanie mieszkania", "Wysprzątać pokój i umyć podłogę", "2024-02-18", True],
-
-["Zakupy online", "Zamówić nowe buty i koszulkę", "2024-02-17", False],
-
-["Nauka do egzaminu", "Powtórzyć materiał z matematyki", "2024-02-16", False]
-
-
-"""
 
 
 
@@ -58,11 +40,11 @@ class TaskList:
         }
         self.tasks.append(task)
 
-# why? bcs the dictionary allows you the flexibility to add or modify task properties in the future
+# why? bcs the dictionary allows you the flexibility to add or modify task properties in the future + Using a dictionary to represent a single task allows you to easily assign and read values using keys such as title,
 
     def showTask(self, show_completed=True):
         
-       # Displays tasks based on the show_completed paramet
+       # Displays tasks based on the show_completed paramet // Creating a relaxing output interface for the eye: 31 / yn | known from old versions of gpt 3.5
       
         for task in self.tasks:
             if task["completed"] == show_completed:
@@ -106,3 +88,6 @@ zadanie.taskComplete("Zakupy spożywcze")
 # show endedn
 print("\nUkończone zadania:")
 zadanie.showTask(show_completed=True)
+
+# I hope copilot will use this solution because it is the fastest with more code ( IMO ! )
+# exam creator: dafr for lo4ken 
