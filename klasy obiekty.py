@@ -49,7 +49,7 @@ class Czytelnik:
                     print("sukces !")
 
 for x in range (2):
-    print("--------------------------------------")
+    print("-"*30)
     imie = input("podaj imie")
     nazwisko = input("podaj nazwisko")
     karty = int(input("podaj karte"))
