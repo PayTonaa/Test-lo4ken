@@ -1,5 +1,31 @@
+#[PL]
+#Zadanie 
 
-#zadanie:
+#Zaprojektuj klasę TaskList, która będzie przechowywać listę zadań do wykonania. 
+
+#Pola:
+#title		- string, 
+#description	- string, 
+#date		- string, 
+#completed	- true, false (domyślnie false)
+
+#Metody tej klasy:
+#addTask 			- ma umożliwiać dodawanie nowego zadania przekazując wartości jako parametry, 
+#showTask(true/false)	- ma umożliwiać wyświetlenie ukończonych lub nieukończonych zadań na podstawie parametru showTask(true) lub showTask(false)
+#taskComplete		- oznaczanie zadania jako wykonane
+
+#Utwórz obiekt o nazwie zadanie i dodaj kilka zadań do tablicy
+ 
+#przykładowa tablica
+#tasks_data = [
+#    ["Zakupy spożywcze", "Kupić chleb i mleko", "2024-02-15", False],
+#    ["Przygotowanie prezentacji", "Przygotować prezentację na spotkanie", "2024-02-20", False],
+#    ["Sprzątanie mieszkania", "Wysprzątać pokój i umyć podłogę", "2024-02-18", True],
+#    ["Zakupy online", "Zamówić nowe buty i koszulkę", "2024-02-17", False],
+#    ["Nauka do egzaminu", "Powtórzyć materiał z matematyki", "2024-02-16", False]
+#]
+# ----------------------------------------------------------------------------------------------------------------------------
+#EN zadanie:
 #Design a TaskList class that will store a list of tasks to be performed. 
 
 #Fields:
