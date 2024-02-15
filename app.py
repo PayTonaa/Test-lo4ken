@@ -182,6 +182,64 @@ if __name__ == "__main__":
                 bot.scan(), print_banner(bot)
                 continue
 
+
+        class Teams:
+    tab1 = []
+    def __init__(self, id, name, town):
+        self.id = id
+        self.name = name
+        self.town = town
+        self.tab1.append(self)
+
+    @classmethod
+    def search_team_by_id(cls, team_id):
+        return [team for team in cls.tab1 if team.id == team_id]
+
+
+class Scoreboard:
+    tab = []
+    def __init__(self, date, typ, where, id, number, scored, lost):
+        self.date = date
+        self.typ = typ
+        self.where = where
+        self.id = id
+        self.number = number
+        self.scored = scored
+        self.lost = lost
+        self.tab.append(self)
+
+    @classmethod
+    def search_matches_by_team_id(cls, team_id):
+        return [match for match in cls.tab if match.id == team_id]
+
+
+with open("z:\\druzyny.txt") as plik:
+    tab = plik.read().splitlines()
+
+with open("z:\\wyniki.txt") as plik:
+    tab1 = plik.read().splitlines()
+
+for arg in tab:
+    id, name, town = arg.split('\t')
+    zadanie = Teams(id, name, town)
+
+for scores in tab1:
+    date, typ, where, id, number, scored, lost = scores.split('\t')
+    zadanie2 = Scoreboard(date, typ, where, id, number, scored, lost)
+
+
+team_id = input("Podaj ID drużyny: ")
+team_matches = Scoreboard.search_matches_by_team_id(team_id)
+
+if team_matches:
+    print("Mecze drużyny o ID {}: ".format(team_id))
+    for match in team_matches:
+        print("Data: {}, Typ: {}, Gdzie: {}, Numer: {}, Strzelono: {}, Stracono: {}".format(
+            match.date, match.typ, match.where, match.number, match.scored, match.lost))
+else:
+    print("Brak meczów dla drużyny o podanym ID.")
+
+        
         sleep(0.0025)
 
     
