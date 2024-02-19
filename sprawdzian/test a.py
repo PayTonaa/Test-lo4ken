@@ -367,36 +367,190 @@
 #
 #
 
-class Emplyee:
-    def __init__(self, imię, nazwisko, stanowisko, wynagrodzenie):
-        self.imię = imię
-        self.nazwisko = nazwisko
-        self.stanowisko = stanowisko
-        self.wynagrodzenie = wynagrodzenie
+# class Emplyee:
+#     def __init__(self, imię, nazwisko, stanowisko, wynagrodzenie):
+#         self.imię = imię
+#         self.nazwisko = nazwisko
+#         self.stanowisko = stanowisko
+#         self.wynagrodzenie = wynagrodzenie
+#
+#     def display_info(self):
+#         print(f"{self.imię}, {self.nazwisko}, {self.stanowisko}, {self.wynagrodzenie}")
+#
+#     def raise_salary(self, amount):
+#         self.wynagrodzenie += amount
+#         self.display_info()
+#
+# test = []
+# employeetest = [
+#     ["Nigger", "Black", "Nigger", 0],
+# ["Dafr", "Fr", "Informejtik", 5000],
+# ["Kasia", "Pstrag", "Nigger", 0]]
+#
+# for empotyee in employeetest:
+#     zadanie = Emplyee(*empotyee)
+#     test.append(zadanie)
+#
+# name = input("podaj ime")
+# for empotyee in test:
+#     if empotyee.imię == name:
+#         empotyee.display_info()
+#
+# amount = int(input("podaj wartosc"))
+# for empotyee in test:
+#     if empotyee.imię == name:
+#         empotyee.raise_salary(amount)
+
+
+# class Book:
+#     def __init__(self, tittle, author, sites):
+#         self.tittle = tittle
+#         self.author = author
+#         self.sites = sites
+#     def display_info(self):
+#         print(f"tutuł {self.tittle}, autor {self.author}, strony{self.sites}")
+#
+# class Library:
+#     def __init__(self):
+#         self.books = []
+#     def add_book(self, book1):
+#         self.books.append(book1)
+#         print("="*30 +"\n")
+#         print("added book! \n")
+#         print("="*30)
+#
+#     def display_books(self):
+#         if not self.books:
+#             pass
+#         else:
+#             for book in self.books:
+#                 book.display_info()
+#
+#
+# tab = []
+# book = [["The Great Gatsby", "F. Scott Fitzgerald", 180],
+#         ["To Kill a Mockingbird", "Harper Lee", 281],
+#         ["1984", "George Orwell", 328]]
+#
+# for books in book:
+#     zadanie = Book(*books)
+#     tab.append(zadanie)
+#
+#
+# name = "The Great Gatsby"
+# library2 = Library()
+# library2.add_book(tab[1])
+# for x in tab:
+#     if x.tittle == name:
+#         library = Library()
+#         library.add_book(x)
+#
+#
+# library.display_books()
+# print("="*30)
+# library2.display_books()
+# print("="*30)
+
+# class Account:
+#     def __init__(self, account_number, balance=0):
+#         self.account_number = account_number
+#         self.balance = balance
+#
+#     def deposit(self, amount):
+#         self.balance += amount
+#         print(f"Deposited ${amount} into Account {self.account_number}")
+#
+#     def withdraw(self, amount):
+#         if self.balance >= amount:
+#             self.balance -= amount
+#             print(f"Withdrew ${amount} from Account {self.account_number}")
+#         else:
+#             print("Insufficient funds.")
+#
+#     def display_balance(self):
+#         print(f"Account {self.account_number} Balance: ${self.balance}")
+#
+#
+# class Bank:
+#     def __init__(self):
+#         self.accounts = {}
+#
+#     def create_account(self, account_number):
+#         if account_number not in self.accounts:
+#             self.accounts[account_number] = Account(account_number)
+#             print(f"Account {account_number} created successfully.")
+#         else:
+#             print("Account number already exists.")
+#
+#     def display_accounts(self):
+#         if not self.accounts:
+#             print("No accounts in the bank.")
+#         else:
+#             print("Accounts in the bank:")
+#             for account_number, account in self.accounts.items():
+#                 account.display_balance()
+#
+#
+# # Utworzenie obiektu banku
+# bank = Bank()
+#
+# # Utworzenie kilku kont bankowych
+# bank.create_account("123456")
+# bank.create_account("789012")
+# bank.create_account("345678")
+#
+# # Wpłata i wypłata na wybranym koncie
+# bank.accounts["123456"].deposit(1000)
+# bank.accounts["789012"].deposit(500)
+# bank.accounts["345678"].deposit(200)
+# bank.accounts["123456"].withdraw(200)
+# bank.accounts["789012"].withdraw(700)
+#
+# # Wyświetlenie informacji o kontach w banku
+# bank.display_accounts()
+
+
+class Student:
+    def __init__(self, id, name, courses):
+        self.id  = id
+        self.name = name
+        self.courses = courses
+
+    def register_course(self, name):
+        self.courses.append(name)
 
     def display_info(self):
-        print(f"{self.imię}, {self.nazwisko}, {self.stanowisko}, {self.wynagrodzenie}")
+        print(f"{self.id}, {self.name}, {self.courses}")
 
-    def raise_salary(self, amount):
-        self.wynagrodzenie += amount
-        self.display_info()
+class Course:
+    def __init__(self, name, students):
+        self.name  = name
+        self.students = students
 
-test = []
-employeetest = [
-    ["Nigger", "Black", "Nigger", 0],
-["Dafr", "Fr", "Informejtik", 5000],
-["Kasia", "Pstrag", "Nigger", 0]]
+    def enroll_student(self, id):
+        self.students.append(id)
 
-for empotyee in employeetest:
-    zadanie = Emplyee(*empotyee)
-    test.append(zadanie)
+    def display_info(self):
+        print(f"{self.name}, {self.students}")
 
-name = input("podaj ime")
-for empotyee in test:
-    if empotyee.imię == name:
-        empotyee.display_info()
 
-amount = int(input("podaj wartosc"))
-for empotyee in test:
-    if empotyee.imię == name:
-        empotyee.raise_salary(amount)
+tab = []
+tab1 = []
+students = [[1, "Bartek", []],
+            [2, "Gosia",[]],
+            [3, "Zenon", []]]
+
+course = [["Warzywo", []],
+          ["Owoce", []]]
+
+for studenci in students:
+    zadanie = Student(*studenci)
+    tab.append(zadanie)
+
+for studenci in tab:
+    if studenci.id == 1:
+        kursy = Course("Warzywo", [])
+        kursy.enroll_student(studenci.id)
+        studenci.register_course("Warzywo")
+        studenci.display_info()
+kursy.display_info()
