@@ -1,46 +1,46 @@
-# Stwórz klasę na nazwie Zwierze dodaj atrybuty takie jak imie, gatunek i wiek, płeć Następnie
-class Zwierze:
-    def __init__(self, imie, gatunek, wiek, plec):
-        self.imie = imie
-        self.gatunek = gatunek
-        self.wiek = wiek
-        self.plec = plec
 
-    # Utwórz metodę wyświetlającą wszystkie informacje o zwierzęciu
-    def wyswietl(self):
-        print(f'Imie: {self.imie}, Gatunek: {self.gatunek}, Wiek: {self.wiek}, Płeć: {self.plec}')
+class ProductInventory:
+    def __init__(self):
+        self.product_name = ""
+        self.product_category = ""
+        self.quantity_available = 0
+        self.unit_price = 0.0
 
-    # Wyświetl wszystkie zwierzęta płci męskiej
-    def wyswietl_m(self):
-        if self.plec == 'm':
-            self.wyswietl()
+    def addProduct(self, name, category, quantity, price):
+        self.product_name = name
+        self.product_category = category
+        self.quantity_available = quantity
+        self.unit_price = price
 
-    # wyświetrl zwierzę na podtawie podnaego imienia
-    def wyswietl_imie(self, imie):
-        if self.imie == imie:
-            self.wyswietl()
+    def showInventory(self):
+        if self.quantity_available > 0:
+            print(f"Product: {self.product_name}, Category: {self.product_category}, "
+                  f"dostepne: {self.quantity_available}, Unit Price: {self.unit_price:.2f}")
 
+    def sellProduct(self, sold_quantity):
+        if self.quantity_available >= sold_quantity:
+            self.quantity_available -= sold_quantity
+        else:
+            print("za mało produktu")
 
-# utwórz kilka obiektów tej klasy w tablicy reprezentujących rózenie zwierzęta takie jak pies kot i ryba
-zwierzeta = [
-    Zwierze('Burek', 'pies', 5, 'm'),
-    Zwierze('Reksio', 'pies', 3, 'm'),
-    Zwierze('Filemon', 'kot', 2, 'm'),
-    Zwierze('Kajtek', 'kot', 1, 'm'),
-    Zwierze('Złota rybka', 'ryba', 1, 'k'),
+tab = []
+products_data = [
+    ["Laptop", "Elektronika", 10, 2500.00],
+    ["Koszula", "Odzież", 50, 80.00],
+    ["Sok pomarańczowy", "Spożywcze", 20, 5.00],
+    ["Buty sportowe", "Obuwie", 30, 200.00]
 ]
 
-# wyświetl wszystkie zwierzęta
-print('Wszystkie zwierzęta:')
-for zwierze in zwierzeta:
-    zwierze.wyswietl()
+for produkt in products_data:
+    zadanie = ProductInventory()
+    zadanie.addProduct(produkt[0], produkt[1], produkt[2], produkt[3])
+    tab.append(zadanie)
 
-# wyświetl wszystkie zwierzęta płci męskiej
-print('Wszystkie zwierzęta płci męskiej:')
-for zwierze in zwierzeta:
-    zwierze.wyswietl_m()
+for produkt in tab:
+    produkt.showInventory()
 
-# wyświetl zwierzę na podtawie podnaego imienia
-print('Zwierzę o imieniu Reksio:')
-for zwierze in zwierzeta:
-    zwierze.wyswietl_imie('Reksio')
+product_to_sell = input("Podaj nazwę produktu do sprzedaży: ")
+for produkt in tab:
+    if produkt.product_name == product_to_sell:
+        quantity_to_sell = int(input(f"Ile sztuk {product_to_sell} chcesz sprzedać? "))
+        produkt.sellProduct(quantity_to_sell)
