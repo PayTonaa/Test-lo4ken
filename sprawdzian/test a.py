@@ -286,51 +286,117 @@
 # pobierz_studenta(nr_indeksu) - zwraca informacje o studencie o podanym numerze indeksu (imię, nazwisko, oceny).
 # Upewnij się, że klasa ZarzadzanieStudentami jest odpowiednio zaprojektowana pod kątem hermetyzacji danych i obsługi wyjątków.
 
-class ZarzadzanieStudentami:
-    imie = ""
-    nazwisko = ""
-    nr_indeksu = 0
-    oceny = []
-    def dodaj_studenta(self, imie, nazwisko, nr_indeksu, oceny):
-        self.imie = imie
+# class ZarzadzanieStudentami:
+#     imie = ""
+#     nazwisko = ""
+#     nr_indeksu = 0
+#     oceny = []
+#     def dodaj_studenta(self, imie, nazwisko, nr_indeksu, oceny):
+#         self.imie = imie
+#         self.nazwisko = nazwisko
+#         self.nr_indeksu = nr_indeksu
+#         self.oceny = oceny
+#
+#     def usun_studenta(self):
+#         pass
+#
+#     def dodaj_ocene(self, ocena):
+#         self.oceny.append(ocena)
+#         print(self.oceny)
+#     def pobierz_srednia(self):
+#         srednia = (sum(self.oceny))/len(self.oceny)
+#         print(srednia)
+#
+#     def pobierz_studenta(self):
+#         print(f"{self.imie}, {self.nazwisko}, {self.nr_indeksu}")
+#
+#
+# tab1 = []
+# tab = [
+#     ["Jan", "Kowalski", 12345, [4, 5, 3]],
+#     ["Anna", "Nowak", 54321, [3, 4]],
+#     ["Piotr", "Wiśniewski", 98765, [5, 4, 5, 5]]
+# ]
+#
+# for student in tab:
+#     zadanie = ZarzadzanieStudentami()
+#     zadanie.dodaj_studenta(*student)
+#     tab1.append(zadanie)
+#
+# ocena = int(input("podaj ocene"))
+# indeks = int(input("podaj indeks"))
+#
+# for x in tab1:
+#     if x.nr_indeksu == indeks:
+#         x.dodaj_ocene(ocena)
+# for x in tab1:
+#     if x.nr_indeksu == indeks:
+#         x.pobierz_srednia()
+# for x in tab1:
+#     x.pobierz_studenta()
+# from random import *
+# import math
+# class Drzewo:
+#     def __init__(self, gatunek, wiek, wysokosc, ilosc_lisi):
+#         self.gatunek = gatunek
+#         self.wiek = wiek
+#         self.wysokosc = wysokosc
+#         self.ilosc_lisi = ilosc_lisi
+#     def rosnij(self):
+#         self.wysokosc += round(random())
+#         self.ilosc_lisi += round(random())
+#
+#
+#     def opisz(self):
+#         print(self.gatunek, self.wiek, self.wysokosc, self.ilosc_lisi)
+#
+# tab = []
+# data = [["Dąb", 100, 20, 5000],
+# ["Brzoza", 50, 15, 3000],
+# ["Wiśnia", 10, 5, 1000]]
+#
+# for inf in data:
+#     zadanie = Drzewo(*inf)
+#     tab.append(zadanie)
+#
+# drzewo = input("podaj drzewo")
+# for x in tab:
+#     if x.gatunek == drzewo:
+#         x.rosnij()
+#         x.opisz()
+#
+#
+
+class Emplyee:
+    def __init__(self, imię, nazwisko, stanowisko, wynagrodzenie):
+        self.imię = imię
         self.nazwisko = nazwisko
-        self.nr_indeksu = nr_indeksu
-        self.oceny = oceny
+        self.stanowisko = stanowisko
+        self.wynagrodzenie = wynagrodzenie
 
-    def usun_studenta(self):
-        pass
+    def display_info(self):
+        print(f"{self.imię}, {self.nazwisko}, {self.stanowisko}, {self.wynagrodzenie}")
 
-    def dodaj_ocene(self, ocena):
-        self.oceny.append(ocena)
-        print(self.oceny)
-    def pobierz_srednia(self):
-        srednia = (sum(self.oceny))/len(self.oceny)
-        print(srednia)
+    def raise_salary(self, amount):
+        self.wynagrodzenie += amount
+        self.display_info()
 
-    def pobierz_studenta(self):
-        print(f"{self.imie}, {self.nazwisko}, {self.nr_indeksu}")
+test = []
+employeetest = [
+    ["Nigger", "Black", "Nigger", 0],
+["Dafr", "Fr", "Informejtik", 5000],
+["Kasia", "Pstrag", "Nigger", 0]]
 
+for empotyee in employeetest:
+    zadanie = Emplyee(*empotyee)
+    test.append(zadanie)
 
-tab1 = []
-tab = [
-    ["Jan", "Kowalski", 12345, [4, 5, 3]],
-    ["Anna", "Nowak", 54321, [3, 4]],
-    ["Piotr", "Wiśniewski", 98765, [5, 4, 5, 5]]
-]
+name = input("podaj ime")
+for empotyee in test:
+    if empotyee.imię == name:
+        empotyee.display_info()
 
-for student in tab:
-    zadanie = ZarzadzanieStudentami()
-    zadanie.dodaj_studenta(*student)
-    tab1.append(zadanie)
-
-ocena = int(input("podaj ocene"))
-indeks = int(input("podaj indeks"))
-
-for x in tab1:
-    if x.nr_indeksu == indeks:
-        x.dodaj_ocene(ocena)
-for x in tab1:
-    if x.nr_indeksu == indeks:
-        x.pobierz_srednia()
-for x in tab1:
-    x.pobierz_studenta()
+amount = int(input("podaj wartosc"))
+for empotyee in test:
+    if empotyee.imię == name:
+        empotyee.raise_salary(amount)
